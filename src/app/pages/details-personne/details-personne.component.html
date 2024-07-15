@@ -1,0 +1,43 @@
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<div class="container d-flex justify-content-center align-items-center" style="height: 71vh; ">
+    <div class="col-lg-3 col-md-10 col-sm-6">
+      <div class="card card-stats " style="width: 50vh; margin-right: 200vh;">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-5 col-md-4">
+              <div class="icon-big text-center icon-warning">
+                <i class="nc-icon nc-single-02 text-warning"></i>
+              </div>
+            </div>
+            <div class="col-7 col-md-8 ">
+              <div class="numbers">
+                <p class="card-category">Name</p>
+                <p class="card-title">{{ personne.personneNom }}
+            
+                    <p class="card-category">Lastname</p>
+                <p class="card-title">{{ personne.personnePrenom }}
+                  <p>
+                    <p class="card-category">Email</p>
+                <p class="card-title">{{ personne.personneMail }}.com
+                  <p>
+                    <p class="card-category">Government</p>
+                <p class="card-title">{{ personne.personneGouvernerat.gouverneratLibelle }}
+                  <p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer ">
+          <hr>
+          <div class="stats">
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-info btn-round " routerLink="/table"><i class="bi bi-arrow-left"></i>
+      </button>
+      
+    </div>
+   
+   
+</div>  

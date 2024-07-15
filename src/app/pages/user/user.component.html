@@ -1,0 +1,101 @@
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+<div class="row justify-content-center">
+  <div class="col-md-8">
+
+
+    <div class="card card-user">
+
+      <div class="card-header">
+        <h5 class="card-title">Enter the new person's information below</h5>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #personneForm="ngForm">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>First Name</label>
+                <input id="personneNom" name="personneNom"
+                [(ngModel)]="newPersonne.personneNom" required maxlength="30" #personneNom="ngModel"
+                type="text" class="form-control" placeholder="Example: Foulen" value="">
+              </div>
+              <div *ngIf="personneNom.invalid && (personneNom.dirty || personneNom.touched)"
+              class="text-danger">
+           <div *ngIf="personneNom.errors && personneNom.errors['required']">
+             Name is required.
+           </div>
+           <div *ngIf="personneNom.errors && personneNom.errors['maxlength']">
+             Nom doit comporter au max 30 caractères.
+           </div>
+         </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Last Name</label>
+                <input 
+                id="personnePrenom" name="personnePrenom"
+                [(ngModel)]="newPersonne.personnePrenom"required maxlength="30" #personnePrenom="ngModel"
+                type="text" class="form-control" placeholder="Example: Ben Foulen" value="">
+              </div>
+              <div *ngIf="personnePrenom.invalid && (personnePrenom.dirty || personnePrenom.touched)"
+              class="text-danger">
+              <div *ngIf="personnePrenom.errors && personnePrenom.errors['required']">
+               Lastname is required.
+             </div>
+             <div *ngIf="personnePrenom.errors && personnePrenom.errors['maxlength']">
+               Nom doit comporter au max 30 caractères.
+             </div>
+           </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Email address</label>
+                <input id="personneMail" name="personneMail"
+                [(ngModel)]="newPersonne.personneMail" email #personneMail="ngModel"
+                type="email" class="form-control" placeholder="Example: Foulen.BenFoulen@gmail.com">
+              </div>
+              <div *ngIf="personneMail.invalid && (personneMail.dirty || personneMail.touched)"
+              class="text-danger">
+           <div *ngIf="personneMail.errors && personneMail.errors['email']">
+            Invalid email format.
+           </div>
+         </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Government</label>
+              
+                <select 
+                class="form-control" id="personneGouvernerat" name="personneGouvernerat"
+                                [(ngModel)]="selectedGouverneratId"  #personneGouvernerat="ngModel">
+                                <option *ngFor="let gouvernerat of Gouverneratas" [value]="gouvernerat.gouverneratId" placeholder="Tunis">
+                                  {{ gouvernerat.gouverneratLibelle }}
+                                </option>
+          </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="update ml-auto mr-auto">
+              <button type="submit" class="btn btn-success btn-round " [disabled]="personneForm.invalid"> Add</button>
+              <button type="button" class="btn btn-danger btn-round " (click)="onCancel()">Cancel</button>
+            </div>
+
+            
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <button type="button" class="btn btn-info btn-round " routerLink="/table"><i class="bi bi-arrow-left"></i>
+    </button>
+  </div>
+</div>
